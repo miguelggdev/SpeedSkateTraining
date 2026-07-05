@@ -11,6 +11,8 @@ import Placeholder from "@/pages/Placeholder"
 import NewSession from "@/pages/NewSession"
 import Sessions from "@/pages/Sessions"
 import NfcSetup from "@/pages/NfcSetup"
+import Routes from "@/pages/Routes"
+import LiveSession from "@/pages/LiveSession"
 
 const queryClient = new QueryClient()
 
@@ -40,9 +42,10 @@ const App = () => (
             <ProtectedLayout><NewSession /></ProtectedLayout>
           } />
           <Route path="/routes" element={
-            <ProtectedLayout>
-              <Placeholder icon="🗺️" title="Rutas GPS" description="Visualiza tus recorridos de bicicleta y patinaje en ruta abierta con mapa interactivo." />
-            </ProtectedLayout>
+            <ProtectedLayout><Routes /></ProtectedLayout>
+          } />
+          <Route path="/live-session" element={
+            <ProtectedLayout><LiveSession /></ProtectedLayout>
           } />
           <Route path="/gym" element={
             <ProtectedLayout>
