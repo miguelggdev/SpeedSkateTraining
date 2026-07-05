@@ -8,6 +8,9 @@ import Login from "@/pages/Login"
 import Dashboard from "@/pages/Dashboard"
 import NotFound from "@/pages/NotFound"
 import Placeholder from "@/pages/Placeholder"
+import NewSession from "@/pages/NewSession"
+import Sessions from "@/pages/Sessions"
+import NfcSetup from "@/pages/NfcSetup"
 
 const queryClient = new QueryClient()
 
@@ -31,14 +34,10 @@ const App = () => (
             <ProtectedLayout><Dashboard /></ProtectedLayout>
           } />
           <Route path="/sessions" element={
-            <ProtectedLayout>
-              <Placeholder icon="⛸️" title="Sesiones" description="Historial completo de todos tus entrenamientos de patinaje, bicicleta y gym." />
-            </ProtectedLayout>
+            <ProtectedLayout><Sessions /></ProtectedLayout>
           } />
           <Route path="/sessions/new" element={
-            <ProtectedLayout>
-              <Placeholder icon="➕" title="Nueva Sesión" description="Registra una sesión de patinaje, bicicleta o gym con todos sus detalles." />
-            </ProtectedLayout>
+            <ProtectedLayout><NewSession /></ProtectedLayout>
           } />
           <Route path="/routes" element={
             <ProtectedLayout>
@@ -71,9 +70,7 @@ const App = () => (
             </ProtectedLayout>
           } />
           <Route path="/nfc" element={
-            <ProtectedLayout>
-              <Placeholder icon="📡" title="Configurar NFC" description="Registra los tags NFC de tus cascos para inicio automático de sesiones." />
-            </ProtectedLayout>
+            <ProtectedLayout><NfcSetup /></ProtectedLayout>
           } />
           <Route path="/settings" element={
             <ProtectedLayout>
