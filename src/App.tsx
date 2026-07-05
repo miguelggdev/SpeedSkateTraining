@@ -24,6 +24,12 @@ import Goals from "@/pages/Goals"
 import Messages from "@/pages/Messages"
 import PersonalBests from "@/pages/PersonalBests"
 import SplitCalculator from "@/pages/SplitCalculator"
+import Gym from "@/pages/Gym"
+import Calendar from "@/pages/Calendar"
+import VideoAnalysis from "@/pages/VideoAnalysis"
+import ClubRanking from "@/pages/ClubRanking"
+import NutritionPlan from "@/pages/NutritionPlan"
+import PDFExport from "@/pages/PDFExport"
 
 const queryClient = new QueryClient()
 
@@ -59,9 +65,22 @@ const App = () => (
             <ProtectedLayout><LiveSession /></ProtectedLayout>
           } />
           <Route path="/gym" element={
-            <ProtectedLayout>
-              <Placeholder icon="🏋️" title="Gym" description="Registro de sesiones de fuerza con ejercicios, series, repeticiones y carga." />
-            </ProtectedLayout>
+            <ProtectedLayout><Gym /></ProtectedLayout>
+          } />
+          <Route path="/calendar" element={
+            <ProtectedLayout><Calendar /></ProtectedLayout>
+          } />
+          <Route path="/video-analysis" element={
+            <ProtectedLayout><VideoAnalysis /></ProtectedLayout>
+          } />
+          <Route path="/club-ranking" element={
+            <ProtectedLayout><ClubRanking /></ProtectedLayout>
+          } />
+          <Route path="/nutrition" element={
+            <ProtectedLayout><NutritionPlan /></ProtectedLayout>
+          } />
+          <Route path="/export" element={
+            <ProtectedLayout><PDFExport /></ProtectedLayout>
           } />
           <Route path="/wellness" element={
             <ProtectedLayout><Wellness /></ProtectedLayout>

@@ -4,19 +4,25 @@ import { useAuth } from '@/hooks/useAuth'
 import {
   LayoutDashboard, Activity, Map, Dumbbell, Heart,
   Target, Trophy, Bot, Settings, LogOut, Menu, X,
-  ChevronRight, Users, TrendingUp, MessageSquare, Package, Calculator
+  ChevronRight, Users, TrendingUp, MessageSquare, Package, Calculator,
+  CalendarDays, Video, Apple, FileDown, Medal
 } from 'lucide-react'
 
 const athleteNav = [
   { to: '/dashboard',      icon: LayoutDashboard, label: 'Dashboard' },
   { to: '/sessions',       icon: Activity,        label: 'Sesiones' },
+  { to: '/calendar',       icon: CalendarDays,    label: 'Calendario' },
   { to: '/routes',         icon: Map,             label: 'Rutas GPS' },
   { to: '/personal-bests', icon: Trophy,          label: 'Marcas (PB)' },
   { to: '/splits',         icon: Calculator,      label: 'Splits & Ritmos' },
   { to: '/gym',            icon: Dumbbell,        label: 'Gym' },
   { to: '/wellness',       icon: Heart,           label: 'Bienestar' },
+  { to: '/nutrition',      icon: Apple,           label: 'Nutrición IA' },
   { to: '/goals',          icon: Target,          label: 'Metas & Logros' },
   { to: '/equipment',      icon: Package,         label: 'Equipamiento' },
+  { to: '/club-ranking',   icon: Medal,           label: 'Ranking Club' },
+  { to: '/video-analysis', icon: Video,           label: 'Video IA' },
+  { to: '/export',         icon: FileDown,        label: 'Exportar PDF' },
   { to: '/messages',       icon: MessageSquare,   label: 'Mensajes' },
   { to: '/ai-coach',       icon: Bot,             label: 'Coach IA' },
 ]
@@ -25,9 +31,11 @@ const coachNav = [
   { to: '/dashboard',      icon: LayoutDashboard, label: 'Dashboard' },
   { to: '/coach',          icon: Users,           label: 'Mis atletas' },
   { to: '/coach/compare',  icon: TrendingUp,      label: 'Comparativa' },
+  { to: '/calendar',       icon: CalendarDays,    label: 'Calendario' },
   { to: '/messages',       icon: MessageSquare,   label: 'Mensajes' },
   { to: '/splits',         icon: Calculator,      label: 'Splits & Ritmos' },
   { to: '/sessions',       icon: Activity,        label: 'Mis sesiones' },
+  { to: '/export',         icon: FileDown,        label: 'Exportar PDF' },
   { to: '/ai-coach',       icon: Bot,             label: 'Coach IA' },
 ]
 
