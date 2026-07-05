@@ -13,6 +13,8 @@ import Sessions from "@/pages/Sessions"
 import NfcSetup from "@/pages/NfcSetup"
 import Routes from "@/pages/Routes"
 import LiveSession from "@/pages/LiveSession"
+import AiCoach from "@/pages/AiCoach"
+import Settings from "@/pages/Settings"
 
 const queryClient = new QueryClient()
 
@@ -68,17 +70,13 @@ const App = () => (
             </ProtectedLayout>
           } />
           <Route path="/ai-coach" element={
-            <ProtectedLayout>
-              <Placeholder icon="🤖" title="Coach IA" description="Agente inteligente que analiza tu progreso y genera recomendaciones personalizadas." />
-            </ProtectedLayout>
+            <ProtectedLayout><AiCoach /></ProtectedLayout>
           } />
           <Route path="/nfc" element={
             <ProtectedLayout><NfcSetup /></ProtectedLayout>
           } />
           <Route path="/settings" element={
-            <ProtectedLayout>
-              <Placeholder icon="⚙️" title="Configuración" description="Perfil, Google Fit, notificaciones y preferencias de la app." />
-            </ProtectedLayout>
+            <ProtectedLayout><Settings /></ProtectedLayout>
           } />
 
           <Route path="/index" element={<Navigate to="/dashboard" replace />} />
