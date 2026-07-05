@@ -18,6 +18,10 @@ import Settings from "@/pages/Settings"
 import CoachDashboard from "@/pages/CoachDashboard"
 import AthleteDetail from "@/pages/AthleteDetail"
 import CompareAthletes from "@/pages/CompareAthletes"
+import Wellness from "@/pages/Wellness"
+import Equipment from "@/pages/Equipment"
+import Goals from "@/pages/Goals"
+import Messages from "@/pages/Messages"
 
 const queryClient = new QueryClient()
 
@@ -58,19 +62,19 @@ const App = () => (
             </ProtectedLayout>
           } />
           <Route path="/wellness" element={
-            <ProtectedLayout>
-              <Placeholder icon="❤️" title="Bienestar Diario" description="Registra tu sueño, nivel de fatiga, hidratación y estado de ánimo cada día." />
-            </ProtectedLayout>
+            <ProtectedLayout><Wellness /></ProtectedLayout>
           } />
           <Route path="/goals" element={
-            <ProtectedLayout>
-              <Placeholder icon="🎯" title="Metas" description="Define y sigue tus objetivos de distancia, tiempo, velocidad y sesiones." />
-            </ProtectedLayout>
+            <ProtectedLayout><Goals /></ProtectedLayout>
           } />
           <Route path="/achievements" element={
-            <ProtectedLayout>
-              <Placeholder icon="🏆" title="Logros" description="Badges y reconocimientos desbloqueados por tus hitos de entrenamiento." />
-            </ProtectedLayout>
+            <ProtectedLayout><Goals /></ProtectedLayout>
+          } />
+          <Route path="/equipment" element={
+            <ProtectedLayout><Equipment /></ProtectedLayout>
+          } />
+          <Route path="/messages" element={
+            <ProtectedLayout><Messages /></ProtectedLayout>
           } />
           <Route path="/ai-coach" element={
             <ProtectedLayout><AiCoach /></ProtectedLayout>
