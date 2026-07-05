@@ -4,10 +4,10 @@ import { useAuth } from '@/hooks/useAuth'
 import {
   LayoutDashboard, Activity, Map, Dumbbell, Heart,
   Target, Trophy, Bot, Settings, LogOut, Menu, X,
-  Bike, ChevronRight
+  Bike, ChevronRight, Users, TrendingUp
 } from 'lucide-react'
 
-const nav = [
+const athleteNav = [
   { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
   { to: '/sessions', icon: Activity, label: 'Sesiones' },
   { to: '/routes', icon: Map, label: 'Rutas GPS' },
@@ -15,6 +15,14 @@ const nav = [
   { to: '/wellness', icon: Heart, label: 'Bienestar' },
   { to: '/goals', icon: Target, label: 'Metas' },
   { to: '/achievements', icon: Trophy, label: 'Logros' },
+  { to: '/ai-coach', icon: Bot, label: 'Coach IA' },
+]
+
+const coachNav = [
+  { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+  { to: '/coach', icon: Users, label: 'Mis atletas' },
+  { to: '/coach/compare', icon: TrendingUp, label: 'Comparativa' },
+  { to: '/sessions', icon: Activity, label: 'Mis sesiones' },
   { to: '/ai-coach', icon: Bot, label: 'Coach IA' },
 ]
 
@@ -78,7 +86,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
         {/* Nav */}
         <nav className="flex-1 py-4 px-3 space-y-0.5 overflow-y-auto">
-          {nav.map(({ to, icon: Icon, label }) => (
+          {(profile?.role === 'coach' || profile?.role === 'admin' ? coachNav : athleteNav).map(({ to, icon: Icon, label }) => (
             <NavLink
               key={to}
               to={to}

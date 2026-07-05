@@ -15,6 +15,9 @@ import Routes from "@/pages/Routes"
 import LiveSession from "@/pages/LiveSession"
 import AiCoach from "@/pages/AiCoach"
 import Settings from "@/pages/Settings"
+import CoachDashboard from "@/pages/CoachDashboard"
+import AthleteDetail from "@/pages/AthleteDetail"
+import CompareAthletes from "@/pages/CompareAthletes"
 
 const queryClient = new QueryClient()
 
@@ -74,6 +77,15 @@ const App = () => (
           } />
           <Route path="/nfc" element={
             <ProtectedLayout><NfcSetup /></ProtectedLayout>
+          } />
+          <Route path="/coach" element={
+            <ProtectedLayout><CoachDashboard /></ProtectedLayout>
+          } />
+          <Route path="/coach/athlete/:id" element={
+            <ProtectedLayout><AthleteDetail /></ProtectedLayout>
+          } />
+          <Route path="/coach/compare" element={
+            <ProtectedLayout><CompareAthletes /></ProtectedLayout>
           } />
           <Route path="/settings" element={
             <ProtectedLayout><Settings /></ProtectedLayout>
