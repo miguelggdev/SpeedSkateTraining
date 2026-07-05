@@ -1,5 +1,7 @@
--- Training plans table for coach → athlete plan assignment
-CREATE TABLE IF NOT EXISTS public.training_plans (
+-- Drop and recreate to ensure clean schema
+DROP TABLE IF EXISTS public.training_plans CASCADE;
+
+CREATE TABLE public.training_plans (
   id                uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   coach_id          uuid NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
   athlete_id        uuid NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
@@ -17,9 +19,9 @@ CREATE TABLE IF NOT EXISTS public.training_plans (
 );
 
 -- Indexes
-CREATE INDEX IF NOT EXISTS training_plans_coach_id_idx   ON public.training_plans(coach_id);
-CREATE INDEX IF NOT EXISTS training_plans_athlete_id_idx ON public.training_plans(athlete_id);
-CREATE INDEX IF NOT EXISTS training_plans_status_idx     ON public.training_plans(status);
+CREATE INDEX training_plans_coach_id_idx   ON public.training_plans(coach_id);
+CREATE INDEX training_plans_athlete_id_idx ON public.training_plans(athlete_id);
+CREATE INDEX training_plans_status_idx     ON public.training_plans(status);
 
 -- Auto-update updated_at
 CREATE OR REPLACE FUNCTION update_updated_at_column()
@@ -34,6 +36,10 @@ CREATE TRIGGER training_plans_updated_at
 
 -- RLS
 ALTER TABLE public.training_plans ENABLE ROW LEVEL SECURITY;
+
+-- Drop existing policies before recreating
+DROP POLICY IF EXISTS "coach_manage_plans" ON public.training_plans;
+DROP POLICY IF EXISTS "athlete_view_plans" ON public.training_plans;
 
 -- Coach can manage their own plans
 CREATE POLICY "coach_manage_plans" ON public.training_plans
