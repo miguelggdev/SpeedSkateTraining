@@ -4,28 +4,31 @@ import { useAuth } from '@/hooks/useAuth'
 import {
   LayoutDashboard, Activity, Map, Dumbbell, Heart,
   Target, Trophy, Bot, Settings, LogOut, Menu, X,
-  ChevronRight, Users, TrendingUp, MessageSquare, Package
+  ChevronRight, Users, TrendingUp, MessageSquare, Package, Calculator
 } from 'lucide-react'
 
 const athleteNav = [
-  { to: '/dashboard',  icon: LayoutDashboard, label: 'Dashboard' },
-  { to: '/sessions',   icon: Activity,        label: 'Sesiones' },
-  { to: '/routes',     icon: Map,             label: 'Rutas GPS' },
-  { to: '/gym',        icon: Dumbbell,        label: 'Gym' },
-  { to: '/wellness',   icon: Heart,           label: 'Bienestar' },
-  { to: '/goals',      icon: Target,          label: 'Metas & Logros' },
-  { to: '/equipment',  icon: Package,         label: 'Equipamiento' },
-  { to: '/messages',   icon: MessageSquare,   label: 'Mensajes' },
-  { to: '/ai-coach',   icon: Bot,             label: 'Coach IA' },
+  { to: '/dashboard',      icon: LayoutDashboard, label: 'Dashboard' },
+  { to: '/sessions',       icon: Activity,        label: 'Sesiones' },
+  { to: '/routes',         icon: Map,             label: 'Rutas GPS' },
+  { to: '/personal-bests', icon: Trophy,          label: 'Marcas (PB)' },
+  { to: '/splits',         icon: Calculator,      label: 'Splits & Ritmos' },
+  { to: '/gym',            icon: Dumbbell,        label: 'Gym' },
+  { to: '/wellness',       icon: Heart,           label: 'Bienestar' },
+  { to: '/goals',          icon: Target,          label: 'Metas & Logros' },
+  { to: '/equipment',      icon: Package,         label: 'Equipamiento' },
+  { to: '/messages',       icon: MessageSquare,   label: 'Mensajes' },
+  { to: '/ai-coach',       icon: Bot,             label: 'Coach IA' },
 ]
 
 const coachNav = [
-  { to: '/dashboard',       icon: LayoutDashboard, label: 'Dashboard' },
-  { to: '/coach',           icon: Users,           label: 'Mis atletas' },
-  { to: '/coach/compare',   icon: TrendingUp,      label: 'Comparativa' },
-  { to: '/messages',        icon: MessageSquare,   label: 'Mensajes' },
-  { to: '/sessions',        icon: Activity,        label: 'Mis sesiones' },
-  { to: '/ai-coach',        icon: Bot,             label: 'Coach IA' },
+  { to: '/dashboard',      icon: LayoutDashboard, label: 'Dashboard' },
+  { to: '/coach',          icon: Users,           label: 'Mis atletas' },
+  { to: '/coach/compare',  icon: TrendingUp,      label: 'Comparativa' },
+  { to: '/messages',       icon: MessageSquare,   label: 'Mensajes' },
+  { to: '/splits',         icon: Calculator,      label: 'Splits & Ritmos' },
+  { to: '/sessions',       icon: Activity,        label: 'Mis sesiones' },
+  { to: '/ai-coach',       icon: Bot,             label: 'Coach IA' },
 ]
 
 const sportColors: Record<string, string> = {

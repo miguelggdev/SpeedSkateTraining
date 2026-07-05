@@ -3,6 +3,7 @@ import { useAuth } from '@/hooks/useAuth'
 import { supabase } from '@/lib/supabase'
 import { CheckCircle, ExternalLink, RefreshCw, User, Activity, Bell, Camera, Loader2 } from 'lucide-react'
 import { toast } from 'sonner'
+import { getWsCategory } from '@/hooks/usePersonalBests'
 
 const GFIT_SCOPES = [
   'https://www.googleapis.com/auth/fitness.activity.read',
@@ -111,6 +112,7 @@ export default function Settings() {
   const labelCls = "block text-[11px] font-bold uppercase tracking-wider text-[#3A5070] mb-1.5"
 
   const initials = profile?.full_name?.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase() ?? '?'
+  const wsCategory = getWsCategory(profile?.birth_date ?? null)
 
   const tabs = [
     { key: 'profile',       label: 'Perfil',     icon: User },
@@ -170,6 +172,11 @@ export default function Settings() {
               <div className="font-bold text-white">{profile?.full_name ?? 'Tu nombre'}</div>
               <div className="text-xs text-[#4A6888] capitalize mt-0.5">{profile?.role} · {profile?.category ?? '—'}</div>
               <div className="text-xs text-[#3A5070] mt-0.5">{user?.email}</div>
+              {wsCategory && (
+                <div className="mt-1 text-[11px] text-[#F59E0B] font-semibold">
+                  🏅 {wsCategory.label} (World Skate)
+                </div>
+              )}
               <button
                 type="button"
                 onClick={() => fileRef.current?.click()}

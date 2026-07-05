@@ -22,6 +22,8 @@ import Wellness from "@/pages/Wellness"
 import Equipment from "@/pages/Equipment"
 import Goals from "@/pages/Goals"
 import Messages from "@/pages/Messages"
+import PersonalBests from "@/pages/PersonalBests"
+import SplitCalculator from "@/pages/SplitCalculator"
 
 const queryClient = new QueryClient()
 
@@ -75,6 +77,12 @@ const App = () => (
           } />
           <Route path="/messages" element={
             <ProtectedLayout><Messages /></ProtectedLayout>
+          } />
+          <Route path="/personal-bests" element={
+            <ProtectedLayout><PersonalBests /></ProtectedLayout>
+          } />
+          <Route path="/splits" element={
+            <ProtectedLayout><SplitCalculator /></ProtectedLayout>
           } />
           <Route path="/ai-coach" element={
             <ProtectedLayout><AiCoach /></ProtectedLayout>
